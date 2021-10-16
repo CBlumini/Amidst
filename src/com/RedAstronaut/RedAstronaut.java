@@ -8,7 +8,9 @@ public class RedAstronaut extends Player implements Impostor
 {
 
     // instance variable
-    String skill;
+    private String skill;
+    public static final int DEFAULT_SUS_LEVEL = 15;
+    public static final String DEFAULT_SKILL = "experienced";
 
     //Main Constructor
     public RedAstronaut(String name, int susLevel, String skill){
@@ -17,11 +19,9 @@ public class RedAstronaut extends Player implements Impostor
     }
 
     //default constructor
-    public RedAstronaut(String initName){
-        name=initName;
-        Player.setSusLevel()=15;
-
-
+    public RedAstronaut(String potato){
+        super(potato, DEFAULT_SUS_LEVEL);
+        this.skill = DEFAULT_SKILL;
     }
 
     //*****************Methods***************
@@ -40,7 +40,7 @@ public class RedAstronaut extends Player implements Impostor
             Arrays.sort(tempArr);
             //Player tempPlayer1 = tempArr[tempArr.length - 1];
             //Player tempPlayer2 = tempArr[tempArr.length - 2];
-            if(!tempArr[tempArr.length - 1].equals(tempArr[tempArr.length - 2])){
+            if (!tempArr[tempArr.length - 1].equals(tempArr[tempArr.length - 2])) {
                 tempArr[tempArr.length - 1].setFrozen(true);
             }
         }
