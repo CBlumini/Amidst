@@ -55,6 +55,7 @@ public abstract class Player implements Comparable<Player> {
     /**
      * This method is the compareTo method from the Comparable interface.
      * It will compare two Player objects based on their susLevel
+     * returns a negative if the input player is more sus
      * @param p this method takes in a Player to compare values to
      * @return int this value will tell you the ordering of 2 Player objects
      */
