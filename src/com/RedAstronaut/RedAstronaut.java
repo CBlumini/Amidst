@@ -5,6 +5,18 @@ import com.Player.Player;
 import java.util.Arrays;
 import java.lang.*;
 
+/*Notes
+https://www.javatpoint.com/downcasting-with-instanceof-operator
+https://www.javatpoint.com/this-keyword
+https://www.tutorialspoint.com/java/lang/class_isassignablefrom.htm
+https://stackoverflow.com/questions/7749052/private-methods-over-public-methods
+https://stackoverflow.com/questions/2559527/non-static-variable-cannot-be-referenced-from-a-static-context
+https://stackoverflow.com/questions/40480/is-java-pass-by-reference-or-pass-by-value
+https://stackoverflow.com/questions/37323933/how-do-i-share-methods-with-instance-variables-in-a-superclass
+https://stackoverflow.com/questions/10165887/how-to-check-if-an-object-implements-an-interface
+https://stackoverflow.com/questions/33598691/how-to-use-tostring-and-getter-and-setter-methods
+ */
+
 public class RedAstronaut extends Player implements Impostor
 {
 
@@ -20,8 +32,8 @@ public class RedAstronaut extends Player implements Impostor
     }
 
     //default constructor
-    public RedAstronaut(String potato){
-        super(potato, DEFAULT_SUS_LEVEL);
+    public RedAstronaut(String name){
+        super(name, DEFAULT_SUS_LEVEL);
         this.skill = DEFAULT_SKILL;
     }
 
@@ -88,7 +100,23 @@ public class RedAstronaut extends Player implements Impostor
     }
 
 
+    public String getSkill() {
+        return skill;
+    }
 
+    public void setSkill(String skill) {
+        this.skill = skill;
+    }
 
+    @Override
+    public String toString() {
+        String frozenString = isFrozen() ? "frozen" : "not frozen";
+        return "My name is " + getName() + ", and I have a suslevel of " + getSusLevel() + " I am currently " +
+                frozenString + " . I am a " + skill + " player!";
+    }
+
+/*
+"My name is [name], and I have a suslevel of [susLevel]. I am currently (frozen / not frozen). I am an [skill] player!”
+ */
 
 }
