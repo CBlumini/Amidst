@@ -107,7 +107,10 @@ public class RedAstronaut extends Player implements Impostor
         }
     }
 
-
+    @Override
+    public boolean equals(Object o) {
+        return super.equals(o);
+    }
 
     public String getSkill() {
         return skill;
