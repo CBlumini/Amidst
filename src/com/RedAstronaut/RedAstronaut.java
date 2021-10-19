@@ -123,8 +123,8 @@ public class RedAstronaut extends Player implements Impostor
     @Override
     public String toString() {
         String frozenString = isFrozen() ? "frozen" : "not frozen";
-        return "My name is " + getName() + ", and I have a suslevel of " + getSusLevel() + " I am currently " +
-                frozenString + " . I am a " + skill + " player!";
+        return "My name is " + getName() + ", and I have a suslevel of " + getSusLevel() + ". I am currently " +
+                frozenString + ". I am a " + skill + " player!";
     }
 
 /*

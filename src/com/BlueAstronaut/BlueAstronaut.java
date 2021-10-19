@@ -93,8 +93,8 @@ public class BlueAstronaut extends Player implements Crewmate {
     @Override
     public String toString() {
         String frozenString = isFrozen() ? "frozen" : "not frozen";
-        return "My name is " + getName() + ", and I have a suslevel of " + getSusLevel() + " I am currently " +
-                frozenString + " . I have " + numTasks + " left over";
+        return "My name is " + getName() + ", and I have a suslevel of " + getSusLevel() + ". I am currently " +
+                frozenString + ". I have " + numTasks + " leftover.";
     }
 
 
