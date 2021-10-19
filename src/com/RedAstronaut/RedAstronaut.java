@@ -3,7 +3,7 @@ import com.Impostor.Impostor;
 import com.Player.Player;
 
 import java.util.Arrays;
-import java.lang.*;
+//import java.lang.*;
 
 /*Notes
 https://www.javatpoint.com/downcasting-with-instanceof-operator
@@ -96,8 +96,17 @@ public class RedAstronaut extends Player implements Impostor
 
     @Override
     public void sabotage(Player p) {
-
+        //int impSus = getSusLevel();
+        if (!p.isFrozen() || !this.isFrozen()) {
+            if (p instanceof Impostor) {
+            } else if (this.getSusLevel() < 20) {
+                p.setSusLevel((int) (p.getSusLevel() * 1.5));
+            } else {
+                p.setSusLevel((int) (p.getSusLevel() * 1.25));
+            }
+        }
     }
+
 
 
     public String getSkill() {
