@@ -2,6 +2,7 @@ package com.BlueAstronaut;
 
 import com.Crewmate.Crewmate;
 import com.Player.Player;
+import com.RedAstronaut.RedAstronaut;
 
 import java.util.Arrays;
 
@@ -62,8 +63,9 @@ public class BlueAstronaut extends Player implements Crewmate {
             } else {
                 numTasks--;
             }
-            if (numTasks < 0) {
+            if (numTasks <= 0) {
                 numTasks = 0;
+                System.out.println("I have completed all my tasks");
             }
 
         }
@@ -71,7 +73,12 @@ public class BlueAstronaut extends Player implements Crewmate {
 
     @Override
     public boolean equals(Object o) {
-        return super.equals(o);
+        if (o instanceof Player) {
+            BlueAstronaut player = (BlueAstronaut) o;
+            return this.getName().equals(player.getName()) && this.isFrozen() == player.isFrozen() && this.getSusLevel() == player.getSusLevel()
+                    && numTasks == player.getNumTasks() && taskSpeed == player.getTaskSpeed();
+        }
+        return false;
     }
 
     public int getNumTasks() {
@@ -93,10 +100,17 @@ public class BlueAstronaut extends Player implements Crewmate {
     @Override
     public String toString() {
         String frozenString = isFrozen() ? "frozen" : "not frozen";
-        return "My name is " + getName() + ", and I have a suslevel of " + getSusLevel() + ". I am currently " +
-                frozenString + ". I have " + numTasks + " leftover.";
+        if (getSusLevel() <= 15) {
+            return "My name is " + getName() + ", and I have a suslevel of " + getSusLevel() + ". I am currently " +
+                    frozenString + ". I have " + numTasks + " leftover.";
+        } else {
+            String output = "My name is " + getName() + ", and I have a suslevel of " + getSusLevel() + ". I am currently " +
+                    frozenString + ". I have " + numTasks + " leftover.";
+            return output.toUpperCase();
+        }
+
+
     }
-
-
 }
+
 

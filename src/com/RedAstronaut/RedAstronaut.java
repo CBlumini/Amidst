@@ -1,4 +1,5 @@
 package com.RedAstronaut;
+import com.BlueAstronaut.BlueAstronaut;
 import com.Impostor.Impostor;
 import com.Player.Player;
 
@@ -109,7 +110,12 @@ public class RedAstronaut extends Player implements Impostor
 
     @Override
     public boolean equals(Object o) {
-        return super.equals(o);
+        if (o instanceof Player) {
+            RedAstronaut player = (RedAstronaut) o;
+            return this.getName().equals(player.getName()) && this.isFrozen() == player.isFrozen()
+                    && this.getSusLevel() == player.getSusLevel() && skill.equals(player.getSkill());
+        }
+        return false;
     }
 
     public String getSkill() {
@@ -123,8 +129,14 @@ public class RedAstronaut extends Player implements Impostor
     @Override
     public String toString() {
         String frozenString = isFrozen() ? "frozen" : "not frozen";
-        return "My name is " + getName() + ", and I have a suslevel of " + getSusLevel() + ". I am currently " +
-                frozenString + ". I am a " + skill + " player!";
+        if (getSusLevel() <= 15) {
+            return "My name is " + getName() + ", and I have a suslevel of " + getSusLevel() + ". I am currently " +
+                    frozenString + ". I am a " + skill + " player!";
+        } else {
+            String output = "My name is " + getName() + ", and I have a suslevel of " + getSusLevel() + ". I am currently " +
+                    frozenString + ". I am a " + skill + " player!";
+            return output.toUpperCase();
+        }
     }
 
 /*
